@@ -13,7 +13,7 @@ const ChatList = ({ selectedId, onSelect, onRefresh }) => {
       try {
         const token =
           localStorage.getItem("token") || localStorage.getItem("tokenG");
-        const res = await axios.get("http://localhost:5000/chats", {
+        const res = await axios.get("https://chat-be-4lov.onrender.com/chats", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

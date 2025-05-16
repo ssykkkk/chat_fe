@@ -38,7 +38,7 @@ const ProfileMenu = () => {
     try {
       const token = localStorage.getItem("token") || localStorage.getItem("tokenG");
       await axios.put(
-        "http://localhost:5000/user/profile",
+        "https://chat-be-4lov.onrender.com/user/profile",
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

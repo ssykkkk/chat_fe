@@ -53,11 +53,11 @@ const MainPage = () => {
 
     try {
       if (editingChat) {
-        await axios.put(`http://localhost:5000/chats/${editingChat._id}`, formData, {
+        await axios.put(`https://chat-be-4lov.onrender.com/chats/${editingChat._id}`, formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
       } else {
-        await axios.post("http://localhost:5000/chats", formData, {
+        await axios.post("https://chat-be-4lov.onrender.com/chats", formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
       }
@@ -72,7 +72,7 @@ const MainPage = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/chats/${selectedChatId}`, {
+      await axios.delete(`https://chat-be-4lov.onrender.com/chats/${selectedChatId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSelectedChatId(null);

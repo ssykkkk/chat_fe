@@ -11,7 +11,7 @@ export const useAuth = () => {
   const refreshAccessToken = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/refresh",
+        "https://chat-be-4lov.onrender.com/user/refresh",
         {},
         { withCredentials: true }
       );
@@ -51,7 +51,7 @@ export const useAuth = () => {
       }
     } else if (token1) {
       try {
-        const response = await axios.get("http://localhost:5000/user/profile", {
+        const response = await axios.get("https://chat-be-4lov.onrender.com/user/profile", {
           headers: { Authorization: `Bearer ${token1}` },
           withCredentials: true,
         });
@@ -62,7 +62,7 @@ export const useAuth = () => {
           const newToken = await refreshAccessToken();
           if (newToken) {
             try {
-              const retry = await axios.get("http://localhost:5000/user/profile", {
+              const retry = await axios.get("https://chat-be-4lov.onrender.com/user/profile", {
                 headers: { Authorization: `Bearer ${newToken}` },
                 withCredentials: true,
               });
@@ -93,7 +93,7 @@ export const useAuth = () => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/login",
+        "https://chat-be-4lov.onrender.com/user/login",
         { email, password },
         { withCredentials: true }
       );
@@ -107,7 +107,7 @@ export const useAuth = () => {
   const register = async (firstName, lastName, email, password) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/register",
+        "https://chat-be-4lov.onrender.com/user/register",
         { firstName, lastName, email, password },
         { withCredentials: true }
       );
@@ -119,12 +119,12 @@ export const useAuth = () => {
   };
 
   const authGoogle = () => {
-    window.location.href = "http://localhost:5000/user/google";
+    window.location.href = "https://chat-be-4lov.onrender.com/user/google";
   };
 
   const logout = async () => {
     try {
-      await axios.post("http://localhost:5000/user/logout", {}, { withCredentials: true });
+      await axios.post("https://chat-be-4lov.onrender.com/user/logout", {}, { withCredentials: true });
     } catch (err) {
       console.error("Logout error:", err);
     }

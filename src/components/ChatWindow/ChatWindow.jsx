@@ -17,7 +17,7 @@ const ChatWindow = ({ chatId, refresh, triggerRefresh, messageSearch }) => {
       try {
         const token =
           localStorage.getItem("token") || localStorage.getItem("tokenG");
-        const res = await axios.get("http://localhost:5000/chats", {
+        const res = await axios.get("https://chat-be-4lov.onrender.com/chats", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const chat = res.data.find((c) => c._id === chatId);
@@ -72,7 +72,7 @@ const ChatWindow = ({ chatId, refresh, triggerRefresh, messageSearch }) => {
 
     try {
       await axios.post(
-        "http://localhost:5000/chats/messages",
+        "https://chat-be-4lov.onrender.com/chats/messages",
         {
           chatId,
           text: textToSend,
@@ -85,7 +85,7 @@ const ChatWindow = ({ chatId, refresh, triggerRefresh, messageSearch }) => {
       triggerRefresh();
       setTimeout(async () => {
         try {
-          const res = await axios.get("http://localhost:5000/chats", {
+          const res = await axios.get("https://chat-be-4lov.onrender.com/chats", {
             headers: { Authorization: `Bearer ${token}` },
           });
 
